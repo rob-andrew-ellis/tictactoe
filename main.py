@@ -1,6 +1,13 @@
-from tictactoe.tictactoe import create_board, place, show_board_state, check_win_condition
+from __future__ import annotations
+
+from tictactoe.tictactoe import check_win_condition
+from tictactoe.tictactoe import create_board
+from tictactoe.tictactoe import place
+from tictactoe.tictactoe import show_board_state
+
 
 def main():
+    """Where the main game loop is run"""
     board = create_board()
     turn_number = 0
     while True:
@@ -26,4 +33,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

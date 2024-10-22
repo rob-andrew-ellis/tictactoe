@@ -6,14 +6,13 @@ repos:
     -   id: end-of-file-fixer
     -   id: check-yaml
     -   id: debug-statements
-    -   id: double-quote-string-fixer
     -   id: name-tests-test
 -   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.5.0
+    rev: v2.7.0
     hooks:
     -   id: setup-cfg-fmt
 -   repo: https://github.com/asottile/reorder-python-imports
-    rev: v3.13.0
+    rev: v3.14.0
     hooks:
     -   id: reorder-python-imports
         exclude: ^(pre_commit/resources/|testing/resources/python3_hooks_repo/)
@@ -23,23 +22,23 @@ repos:
     hooks:
     -   id: add-trailing-comma
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.17.0
+    rev: v3.19.0
     hooks:
     -   id: pyupgrade
         args: [--py39-plus]
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.4
+    rev: v0.7.0
     hooks:
     -   id: ruff
         args: [--fix]
     -   id: ruff-format
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.11.2
+    rev: v1.12.1
     hooks:
     -   id: mypy
         additional_dependencies: [types-pyyaml]
         exclude: ^testing/resources/
 -   repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.16
+    rev: v0.21
     hooks:
     -   id: validate-pyproject

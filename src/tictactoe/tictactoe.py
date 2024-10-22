@@ -1,14 +1,37 @@
+from __future__ import annotations
+
+
 def create_board() -> list[list[str]]:
+    """Creates the initial array to be used as the board
+
+    Returns:
+        list[list[str]]: Initial board array
+    """
     return [
-        ['-', '-', '-'],
-        ['-', '-', '-'],
-        ['-', '-', '-'],
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"],
     ]
 
 
 def place(
-        board: list[list[str]], x: int, y: int, turn_number: int
-    ) -> list[list[str]]:
+    board: list[list[str]],
+    x: int,
+    y: int,
+    turn_number: int,
+) -> list[list[str]]:
+    """Places an X or O on the board in a specified place, uses recursion to
+        avoid placing pieces on occupied spaces
+
+    Arguments:
+        board:              Current board state
+        x:                  X coordinate
+        y:                  Y coordinate
+        turn_number:        The current turn number
+
+    Returns:
+        list[list[str]]:    New board state
+    """
     if turn_number % 2 != 0:
         if board[x][y] == "-":
             board[x][y] = "X"
@@ -18,7 +41,7 @@ def place(
                 board,
                 int(input("Enter Y coordinate: ")),
                 int(input("Enter X coordinate: ")),
-                turn_number
+                turn_number,
             )
     else:
         if board[x][y] == "-":
@@ -29,13 +52,18 @@ def place(
                 board,
                 int(input("Enter Y coordinate: ")),
                 int(input("Enter X coordinate: ")),
-                turn_number
+                turn_number,
             )
 
     return board
 
 
 def show_board_state(board):
+    """Prints the current board state
+
+    Arguments:
+    board: Current board state
+    """
     print(" ")
 
     for i in range(len(board)):
@@ -45,6 +73,14 @@ def show_board_state(board):
 
 
 def check_win_condition(board: list[list[str]]) -> bool:
+    """Checks the board for completed lines
+
+    Arguments:
+        board:  Current board state
+
+    Returns:
+    bool:   Whether a complete line has been found
+    """
     for i in range(len(board)):
         if board[i].count(board[i][0]) == len(board[0]) and board[i][0] != "-":
             return True
@@ -56,4 +92,3 @@ def check_win_condition(board: list[list[str]]) -> bool:
     if board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] != "-":
         return True
     return False
-
