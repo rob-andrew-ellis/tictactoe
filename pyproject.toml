@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "tictactoe"
+version = "0.1.0"
+description = "Simple tic tac toe CLI implementation"
+authors = ["robertellis-digica <robert.ellis@digica.com>"]
+readme = "README.md"
+packages = [{include = "tictactoe", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+ruff = "^0.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+select = ["D"]
+
+[tool.ruff.lint]
+select = ["D100", "D101", "D102", "D103"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
